@@ -1,22 +1,30 @@
-/* Ensure the body and html elements take up the full height */
-html, body {
-    height: 100%;
+/* Set body margin and padding to zero for a full-screen effect */
+body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
-/* Full-screen image container */
+/* Make the image container fill the entire screen */
 .image-container {
-    height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    position: relative;
 }
 
-/* Make the image fill the entire screen while maintaining aspect ratio */
+/* Make the image responsive */
 .image-container img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    width: 100%; /* Ensures the image covers the full width */
+    height: 100%; /* Ensures the image covers the full height */
+    object-fit: cover; /* Maintains aspect ratio and covers the container */
+    object-position: center; /* Centers the image in the container */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .image-container img {
+        object-position: top; /* Adjust the positioning for smaller screens */
+    }
 }
